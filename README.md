@@ -22,7 +22,7 @@ Para utilizar a API é necessário que esteja instalado o seguinte:
 
 ## 🚀 Utilizar a API
 
-Para utilizar a API, primeiramente é necessário clonar o projeto do GitHub num diretório de sua preferência e entrar no mesmo:
+Para utilizar a API, primeiramente é necessário clonar o projeto do GitHub num diretório de sua preferência, entrar no mesmo e criar o arquivo .env:
 
 ```shell
 cd "diretorio de sua preferencia"
@@ -30,6 +30,8 @@ cd "diretorio de sua preferencia"
 git clone https://github.com/ghguilherme/BuscaCEP
 
 cd BuscaCEP
+
+cp .env.example .env
 ```
 
 ### Instalando as dependências
@@ -78,5 +80,24 @@ Com Make:
 make up
 ```
 
-Após rodar o comando , ir até a seguinte URL no browser:
+Após rodar o comando, a URL da api ficará disponível em:
 http://localhost:8085
+
+### Consumindo a API
+
+Caso tenha executado com o docker ou com make, é possível consultar os detalhes dos endpoints disponíveis na seguinte URL:
+http://localhost:8082
+
+Mas, estão disponíveis os seguinte endpoints:
+
+- Consulta através do CEP
+
+    http://localhost:8085/v1/cep/{CEP}
+
+    Informar o cep desejado ao invés de {CEP}
+
+- Consulta através do Endereço
+
+    http://localhost:8085/v1/endereco/{UF}/{Município}/{Rua/Avenida}
+
+    Informar o os dados da UF, Município e Rua/Avenida ao invés de {UF}, {Município} e {Rua/Avenida}, respectivamente.

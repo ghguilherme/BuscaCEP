@@ -1,0 +1,111 @@
+swagger: "2.0"
+info:
+  description: "Documentation for BuscaCEP API"
+  version: "0.0.1"
+  title: "BuscaCEP API"
+host: "localhost:8085"
+basePath: "/v1"
+tags:
+- name: "CEP"
+schemes:
+- "http"
+paths:
+  /cep/{cep}:
+    get:
+      tags:
+      - "CEP"
+      summary: "Find by CEP"
+      description: "Will return only one row"
+      operationId: "findCepByCep"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cep"
+        in: "path"
+        description: "CEP for searching"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Successful operation"
+          examples:
+            application/json: {
+              "type": "sucess",
+              "data": [
+                {
+                  "cep": "01001-000",
+                  "logradouro": "Praça da Sé",
+                  "complemento": "lado ímpar",
+                  "bairro": "Sé",
+                  "localidade": "São Paulo",
+                  "uf": "SP",
+                  "ibge": "3550308",
+                  "gia": "1004",
+                  "ddd": "11",
+                  "siafi": "7107"
+                }
+              ]
+            }
+        "400":
+          description: "Invalid status value"
+
+  /endereco/{uf}/{municipio}/{logradouro}:
+    get:
+      tags:
+      - "CEP"
+      summary: "Find by Address"
+      description: "Will return one or more rows"
+      operationId: "findCepByStreet"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uf"
+        in: "path"
+        description: "State UF"
+        required: true
+        type: "string"
+      - name: "municipio"
+        in: "path"
+        description: "City"
+        required: true
+        type: "string"
+      - name: "logradouro"
+        in: "path"
+        description: "Street/Avenue name"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+          examples:
+            application/json: {
+              "type": "sucess",
+              "data": [
+                  {
+                    "cep": "08485-432",
+                    "logradouro": "Rua Brasil",
+                    "complemento": "",
+                    "bairro": "Conjunto Habitacional Santa Etelvina III",
+                    "localidade": "São Paulo",
+                    "uf": "SP",
+                    "ibge": "3550308",
+                    "gia": "1004",
+                    "ddd": "11",
+                    "siafi": "7107"
+                  },
+                  {
+                    "cep": "08421-155",
+                    "logradouro": "Rua Brasil",
+                    "complemento": "",
+                    "bairro": "Vila Cosmopolita",
+                    "localidade": "São Paulo",
+                    "uf": "SP",
+                    "ibge": "3550308",
+                    "gia": "1004",
+                    "ddd": "11",
+                    "siafi": "7107"
+                  }
+              ]
+            }
+        "400":
+          description: "Invalid status value"
