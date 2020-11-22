@@ -1,24 +1,82 @@
-# Lumen PHP Framework
+# BuscaCEP
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+Esse projeto permite consultar os dados de CEPs a partir da informação do CEP ou do endereço completo (Rua, Cidade e UF).
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## 🛠️ Tecnologias
 
-## Official Documentation
+As seguintes ferramentas foram usadas na construção do projeto:
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+- [PHP](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Docker](https://www.docker.com/)
 
-## Contributing
+## ⚙️ Pré-requisitos
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Para utilizar a API é necessário que esteja instalado o seguinte:
 
-## Security Vulnerabilities
+* Docker **OU** PHP + Composer
+    - [Instação PHP](https://www.php.net/manual/pt_BR/install.php)
+    - [Instação Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+    - [Instação Docker](https://docs.docker.com/get-docker/)
+* Makefile (Opcional)
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## 🚀 Utilizar a API
 
-## License
+Para utilizar a API, primeiramente é necessário clonar o projeto do GitHub num diretório de sua preferência e entrar no mesmo:
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```shell
+cd "diretorio de sua preferencia"
+
+git clone https://github.com/ghguilherme/BuscaCEP
+
+cd BuscaCEP
+```
+
+### Instalando as dependências
+
+Após o projeto clonado e estando na raiz do projeto, é necessário instalar todas as dependências para correta execução do mesmo.
+
+Com PHP:
+
+```shell
+composer install
+```
+
+Com Docker:
+
+```shell
+docker-compose run --rm php composer install -d ./../../
+```
+
+Com Make:
+
+```shell
+make composer
+```
+
+### Subindo a API
+
+Finalizado o passo de instalação das as dependências, agora podemos subir a API:
+
+Com PHP:
+
+```shell
+cd public
+
+php -S localhost:8085
+```
+
+Com Docker:
+
+```shell
+docker-compose up --build
+```
+
+Com Make:
+
+```shell
+make up
+```
+
+Após rodar o comando , ir até a seguinte URL no browser:
+http://localhost:8085
