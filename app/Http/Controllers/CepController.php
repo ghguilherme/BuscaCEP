@@ -9,6 +9,7 @@ class CepController extends Controller
     public function __construct()
     {
     }
+
     public function BuscaPorCep($cep)
     {
         $cepUtil = new CepUtil();
