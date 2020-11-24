@@ -101,3 +101,25 @@ Mas, estão disponíveis os seguinte endpoints:
     http://localhost:8085/v1/endereco/{UF}/{Município}/{Rua/Avenida}
 
     Informar o os dados da UF, Município e Rua/Avenida ao invés de {UF}, {Município} e {Rua/Avenida}, respectivamente.
+
+## ⚠️ Executandos os Testes
+
+Para execução dos testes automatizados, é necessário executar um dos seguintes comandos:
+
+Com PHP:
+
+```shell
+php vendor/bin/phpunit
+```
+
+Com Docker:
+
+```shell
+docker-compose run --rm -w /var/www/html/ php php ./vendor/bin/phpunit
+```
+
+Com Make:
+
+```shell
+make teste
+```
